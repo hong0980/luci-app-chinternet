@@ -19,11 +19,11 @@ msgstr "*所有时间参数都是指该自然单位中的时间点，而非累�
 msgid "* All values can be used-Connection means continuous range, such as week: 1-5 means Monday to Friday; use, means non-continuous point, such as week: 1, 3, 5 means only Monday, Wednesday, and Friday. The month, date, and time are used in the same way."
 msgstr "* 所有数值可使用 - 连接表示连续范围，比如星期：1-5 表示星期一至星期五；使用,表示不连续的点，比如星期：1,3,5 表示仅仅星期一、三、五。月份、日期、时间用法相同。"
 
-msgid ""
-msgstr ""
+msgid "month <font color=\" red\">(Numerical range1~12)</font>"
+msgstr "月 <font color=\" red\">(数值范围1～12)</font>"
 
-msgid ""
-msgstr ""
+msgid "<font color=\"gray\">*Represents every month, * / n represents every n months</br>n1-n5 continuous, n1, n3, n5 discontinuous</font>"
+msgstr "<font color=\"gray\">*表示每个月，*/n表示每n个月</br>n1-n5连续，n1,n3,n5不连续</font>"
 
 msgid ""
 msgstr ""
