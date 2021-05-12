@@ -10,8 +10,8 @@ msgstr "查看crontab用法"
 msgid "crontab file"
 msgstr "crontab文件"
 
-msgid "A plug-in that makes planning tasks easier to use, you can use-to indicate a continuous time range, use to indicate multiple discontinuous time points, and use */ to indicate cyclic execution. You can use \"Add\" to add multiple scheduled task commands. You can use \"--Custom--\" to add other parameters yourself."
-msgstr "让计划任务更加易用的插件，可以使用-表示连续的时间范围，使用,表示不连续的多个时间点，使用*/表示循环执行。可以使用“添加”来添加多条计划任务命令。可使用“--自定义--”来自行添加其它参数。"
+msgid "<font color=\"green\"><b>A plug-in that makes planning tasks easier to use, you can use-to indicate a continuous time range, use to indicate multiple discontinuous time points, and use */ to indicate cyclic execution. You can use \"Add\" to add multiple scheduled task commands. You can use \"--Custom--\" to add other parameters yourself.</font></b>"
+msgstr "<font color=\"green\"><b>让计划任务更加易用的插件，可以使用-表示连续的时间范围，使用,表示不连续的多个时间点，使用*/表示循环执行。可以使用“添加”来添加多条计划任务命令。可使用“--自定义--”来自行添加其它参数。</font></b>"
 
 msgid "*All time parameters refer to the time point in the natural unit, not the cumulative count. For example, the month can only be 1-12, the date can only be 1 to 31, the week can only be 0-6, and the hour can only be 0. -23, the minutes can only be 0-59, and the cumulative counting notation of 50 days and 48 hours cannot be used."
 msgstr "*所有时间参数都是指该自然单位中的时间点，而非累积计数，比如月份只能是1～12，日期只能是1～31，星期只能是0～6，小时只能是0～23，分钟只能是0～59，不能使用50天、48小时这种累积计数表示法。"
@@ -25,65 +25,65 @@ msgstr "月 <font color=\" red\">(数值范围1～12)</font>"
 msgid "<font color=\"gray\">*Represents every month, * / n represents every n months</br>n1-n5 continuous, n1, n3, n5 discontinuous</font>"
 msgstr "<font color=\"gray\">*表示每个月，*/n表示每n个月</br>n1-n5连续，n1,n3,n5不连续</font>"
 
-msgid ""
-msgstr ""
+msgid "day <font color=\" red\">(Numerical range1~31)</font>"
+msgstr "日 <font color=\" red\">(数值范围1～31)</font>"
 
-msgid ""
-msgstr ""
+msgid "<font color=\"gray\">* means every day, */n means every n days</br>n1-n5 are continuous, n1, n3, n5 are not continuous</font>"
+msgstr "<font color=\"gray\">*表示每天，*/n表示每n天</br>n1-n5连续，n1,n3,n5不连续</font>"
 
-msgid ""
-msgstr ""
+msgid "week <font color=\" red\">(Numerical range0~6)</font>"
+msgstr "星期 <font color=\" red\">(数值范围0～6)</font>"
 
-msgid ""
-msgstr ""
+msgid "<font color=\"gray\">and date is a logical AND relationship</br>n1-n5 are continuous, n1, n3, n5 are not continuous</font>"
+msgstr "<font color=\"gray\">和日期是逻辑“与”关系</br>n1-n5连续，n1,n3,n5不连续</font>"
 
-msgid ""
-msgstr ""
+msgid "hour <font color=\" red\">(Numerical range0~23)</font>"
+msgstr "时 <font color=\" red\">(数值范围0～23)</font>"
 
-msgid ""
-msgstr ""
+msgid "<font color=\"gray\">* means every hour, */n means every n hours</br>n1-n5 are continuous, n1, n3, n5 are not continuous</font>"
+msgstr "<font color=\"gray\">*表示每小时，*/n表示每n小时</br>n1-n5连续，n1,n3,n5不连续</font>"
 
-msgid ""
-msgstr ""
+msgid "minute <font color=\" red\">(Numerical range0~59)</font>"
+msgstr "分 <font color=\" red\">(数值范围0～59)</font>"
 
-msgid ""
-msgstr ""
+msgid "<font color=\"gray\">* means every minute, */n means every n minutes</br>n1-n5 continuous, n1, n3, n5 not continuous</font>"
+msgstr "<font color=\"gray\">*表示每分钟，*/n表示每n分钟</br>n1-n5连续，n1,n3,n5不连续</font>"
 
-msgid ""
-msgstr ""
+msgid "Execute the command <font color=\" red\">(multiple items connected with &&)</font>"
+msgstr "执行命令 <font color=\" red\">(多条用 && 连接)</font>"
 
-msgid ""
-msgstr ""
+msgid "<font color=\"gray\">Press \"--Custom--\" to modify it</br> (it can also be added and modified in the scheduled task)</font>"
+msgstr "<font color=\"gray\">按“--自定义--”可进行修改</br>(亦可添加后到计划任务中修改)</font>"
 
-msgid ""
-msgstr ""
+msgid "reboot"
+msgstr "重启系统"
 
-msgid ""
-msgstr ""
+msgid "restart network"
+msgstr "重启网络"
 
-msgid ""
-msgstr ""
+msgid "Restart wan"
+msgstr "重启wan"
 
-msgid ""
-msgstr ""
+msgid "Redial"
+msgstr "重新拨号"
 
-msgid ""
-msgstr ""
+msgid "Turn off networking"
+msgstr "关闭联网"
 
-msgid ""
-msgstr ""
+msgid "Turn on networking"
+msgstr "打开联网"
 
-msgid ""
-msgstr ""
+msgid "Turn off WIFI"
+msgstr "关闭WIFI"
 
-msgid ""
-msgstr ""
+msgid "Turn on WIFI"
+msgstr "打开WIFI"
 
-msgid ""
-msgstr ""
+msgid "Free up memory"
+msgstr "释放内存"
 
-msgid ""
-msgstr ""
+msgid "Turn off the power"
+msgstr "关闭电源"
 
 msgid ""
 msgstr ""
