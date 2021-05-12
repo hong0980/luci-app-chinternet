@@ -55,10 +55,10 @@ msgstr "执行命令 <font color=\" red\">(多条用 && 连接)</font>"
 msgid "<font color=\"gray\">Press \"--Custom--\" to modify it</br> (it can also be added and modified in the scheduled task)</font>"
 msgstr "<font color=\"gray\">按“--自定义--”可进行修改</br>(亦可添加后到计划任务中修改)</font>"
 
-msgid "reboot"
+msgid "Reboots"
 msgstr "重启系统"
 
-msgid "restart network"
+msgid "Restart network"
 msgstr "重启网络"
 
 msgid "Restart wan"
