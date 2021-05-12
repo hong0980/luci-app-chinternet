@@ -1,3 +1,6 @@
+msgid "crontabs"
+msgstr "crontab查看"
+
 msgid "Reboot schedule"
 msgstr "定时任务 Plus+"
 
@@ -85,11 +88,8 @@ msgstr "释放内存"
 msgid "Turn off the power"
 msgstr "关闭电源"
 
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
+msgid "Scheduled tasks in system crontab.<br/>You can also edit or add commands directly here."
+msgstr "系统 crontab 中的计划任务。<br/>这里也可直接编辑或添加命令。"
 
 msgid ""
 msgstr ""
