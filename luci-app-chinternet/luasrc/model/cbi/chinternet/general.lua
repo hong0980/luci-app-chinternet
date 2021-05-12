@@ -1,3 +1,9 @@
+font_green = [[<font color="green">]]
+font_red = [[<font color="red">]]
+font_off = [[</font>]]
+bold_on  = [[<strong>]]
+bold_off = [[</strong>]]
+
 m=Map("chinternet",translate("Reboot schedule"),translate("<font color=\"green\"><b>A plug-in that makes planning tasks easier to use, you can use-to indicate a continuous time range, use to indicate multiple discontinuous time points, and use */ to indicate cyclic execution. You can use \"Add\" to add multiple scheduled task commands. You can use \"--Custom--\" to add other parameters yourself.</font></b>") .. "</br>" ..
 translate("*All time parameters refer to the time point in the natural unit, not the cumulative count. For example, the month can only be 1-12, the date can only be 1 to 31, the week can only be 0-6, and the hour can only be 0. -23, the minutes can only be 0-59, and the cumulative counting notation of 50 days and 48 hours cannot be used.") .. "</br>" ..
 translate("* All values can be used-Connection means continuous range, such as week: 1-5 means Monday to Friday; use, means non-continuous point, such as week: 1, 3, 5 means only Monday, Wednesday, and Friday. The month, date, and time are used in the same way.") .."</br>" ..

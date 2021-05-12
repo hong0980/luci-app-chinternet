@@ -2,9 +2,9 @@ module("luci.controller.chinternet", package.seeall)
 
 function index()
 	local fs = require "nixio.fs"
---	if not nixio.fs.access("/etc/config/chinternet") then
---		return
---	end
+	if not nixio.fs.access("/etc/config/chinternet") then
+		return
+	end
 
 	entry({"admin", "services", "chinternet"},
 		alias("admin", "services", "chinternet", "general"),
@@ -16,5 +16,5 @@ function index()
 
 	entry({"admin", "services", "chinternet", "crontab"},
 		cbi("chinternet/crontab"),
-		_("Scheduled Tasks"), 30).leaf = true
+		_("crontabs"), 30).leaf = true
 end

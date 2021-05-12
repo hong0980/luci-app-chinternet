@@ -2,9 +2,7 @@ local fs = require "nixio.fs"
 local cronfile = "/etc/crontabs/root" 
 
 f = SimpleForm("crontab", translate(""),
-	translate("This is the system crontab in which scheduled tasks can be defined.") ..
-	translate("<br/>Note: you need to manually restart the cron service if the " ..
-		"crontab file was empty before editing."))
+	translate("Scheduled tasks in system crontab.<br/>You can also edit or add commands directly here."))
 
 t = f:field(TextValue, "crons")
 t.rmempty = true
