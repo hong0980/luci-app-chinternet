@@ -1,0 +1,60 @@
+on:
+  watch:
+    types: started
+
+name: 编译ipk
+
+jobs:
+  build:
+    name: Upload Release Asset
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: build
+        run: |
+          TAG=${GITHUB_REF#refs/tags/}
+          echo ::set-output name=tag_name::${TAG}
+          mkdir -p /tmp/luci-app-chinternet/usr/lib/lua/luci /tmp/luci-app-chinternet/www/
+          [ -d $GITHUB_WORKSPACE/luci-app-chinternet/luasrc ] && cp -R $GITHUB_WORKSPACE/luci-app-chinternet/luasrc/* /tmp/luci-app-chinternet/usr/lib/lua/luci/
+          [ -d $GITHUB_WORKSPACE/luci-app-chinternet/root ] && cp -R $GITHUB_WORKSPACE/luci-app-chinternet/root/* /tmp/luci-app-chinternet/
+          chmod +x /tmp/luci-app-chinternet/etc/init.d/* >/dev/null 2>&1
+          chmod +x /tmp/luci-app-chinternet/etc/uci-defaults/* >/dev/null 2>&1
+          [ -d $GITHUB_WORKSPACE/luci-app-chinternet/po ] && sudo -E apt-get -y install gcc make && \
+          mkdir -p /tmp/po2lmo && mkdir -p /tmp/luci-app-chinternet/usr/lib/lua/luci/i18n/ && \
+          wget -O /tmp/po2lmo/po2lmo.c https://raw.githubusercontent.com/openwrt/luci/openwrt-18.06/modules/luci-base/src/po2lmo.c && \
+          wget -O /tmp/po2lmo/Makefile https://raw.githubusercontent.com/openwrt/luci/openwrt-18.06/modules/luci-base/src/Makefile && \
+          wget -O /tmp/po2lmo/template_lmo.h https://raw.githubusercontent.com/openwrt/luci/openwrt-18.06/modules/luci-base/src/template_lmo.h && \
+          wget -O /tmp/po2lmo/template_lmo.c https://raw.githubusercontent.com/openwrt/luci/openwrt-18.06/modules/luci-base/src/template_lmo.c && \
+          cd /tmp/po2lmo && make po2lmo && ./po2lmo $GITHUB_WORKSPACE/luci-app-chinternet/po/zh-cn/chinternet.po /tmp/luci-app-chinternet/usr/lib/lua/luci/i18n/chinternet.zh-cn.lmo
+          echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+          echo "FILE_DATE=$(date +"%Y-%m%d-%H%M")" >> $GITHUB_ENV
+          mkdir -p /tmp/luci-app-chinternet/CONTROL
+          cat >/tmp/luci-app-chinternet/CONTROL/control <<EOF
+          Package: luci-app-chinternet
+          Version: ${TAG}
+          Depends: luci-lib-docker, ttyd, docker-ce
+          Architecture: all
+          Maintainer: lisaac<https://github.com/lisaac/luci-app-chinternet>
+          Section: base
+          Priority: optional
+          Description: Simple Docker manager interface
+          Source: http://github.com/lisaac/luci-app-chinternet
+          EOF
+          cat >/tmp/luci-app-chinternet/CONTROL/postinst <<EOF
+          #!/bin/sh
+          if [ -z "${IPKG_INSTROOT}" ]; then
+          ( . /etc/uci-defaults/luci-app-chinternet ) && rm -f /etc/uci-defaults/luci-app-chinternet
+          fi
+          exit 0
+          EOF
+          chmod +x /tmp/luci-app-chinternet/CONTROL/postinst
+          # wget -O /tmp/ipkg-build https://raw.githubusercontent.com/openwrt/openwrt/v18.06.0/scripts/ipkg-build && \
+          # chmod +x /tmp/ipkg-build && \
+          # /tmp/ipkg-build -o root -g root /tmp/luci-app-chinternet /tmp
+      - name: 上传固件
+        uses: actions/upload-artifact@v2
+        with:
+        name: ${{ env.FILE_DATE }}-chinternet.zh-cn.lmo
+        path: ${{ env.FIRMWARE }}
+        
