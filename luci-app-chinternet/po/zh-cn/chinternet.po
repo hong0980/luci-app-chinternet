@@ -11,7 +11,7 @@ msgid "View crontab usage"
 msgstr "查看crontab用法"
 
 msgid "<font color=\"green\"><b>A plug-in that makes timed tasks easier to use. There is a modification of the original version of [wulishui@gmail.com] to support wulishui. Click to view the usage example and scan the QR code to reward</font></b></br>"
-msgstr "<font color=\"green\"><b>让定时任务更加易用的插件。有[wulishui@gmail.com]的原版修改，支持wulishui点击 "查看使用示例" 后扫描二维码打赏</font></b></br>"
+msgstr "<font color=\"green\"><b>让定时任务更加易用的插件。有[wulishui@gmail.com]的原版修改，支持wulishui点击下面的 \"查看使用示例\" 后扫描二维码打赏</font></b></br>"
 
 msgid "The string of the CRON expression consists of five fields separated by spaces plus an execution command. </br>'* * * * * [command]'Five asterisks indicate the time of day, month and week respectively, commond indicates the required command</br> The allowed value range is minutes (1-59) , Hour (0-23), date (1-31), month (1-12) week (0-6). </br>Each field uses numbers, but the following special characters can also appear, their meaning is:</br>"
 msgstr "CRON表达式的字符串由五个有空格分隔加执行命令字段组成。 </br>' * * * * * [command] ' 五个星号分别表示 分 时 日 月 周，commond 表示所需执行的命令</br>允许的数值范围是，分（1-59）， 时(0-23)，日(1-31)，月(1-12)，周(0-6)。</br>每一个域都使用数字或者以下半角的特殊字符，它们的含义是：</br>"
