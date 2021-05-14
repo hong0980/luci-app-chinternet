@@ -55,7 +55,7 @@ msgstr "系统 crontab 文件中的要执行定时任务。<br/>这里也可直�
 msgid "command"
 msgstr "命令"
 
-msgid "hourss"
+msgid "hours"
 msgstr "时"
 
 msgid "month"
