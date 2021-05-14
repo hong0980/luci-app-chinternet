@@ -53,22 +53,13 @@ msgid "Scheduled tasks in system crontab.<br/>You can also edit or add commands 
 msgstr "系统 crontab 文件中的要执行定时任务。<br/>这里也可直接编辑或添加命令。"
 
 msgid "command"
-msgstr "执行的命令"
+msgstr "命令"
 
 msgid "hourss"
 msgstr "时"
 
 msgid "month"
 msgstr "月"
-
-msgid "week"
-msgstr "周"
-
-msgid "Everyday"
-msgstr "每天"
-
-msgid "month"
-msgstr "分"
 
 msgid ""
 msgstr ""
