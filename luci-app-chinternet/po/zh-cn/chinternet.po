@@ -61,6 +61,18 @@ msgstr "时"
 msgid "month"
 msgstr "月"
 
+msgid "Execute immediately"
+msgstr "立即执行"
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
 msgid "axel is a good high-speed download tool that supports HTTP, HTTPS, FTP and FTPS protocols. Supports multi-threaded downloads, resumable uploads, and can download the same file from multiple addresses or multiple connections from one address. It is suitable for multi-threaded download to improve the download speed when the internet speed is not strong."
 msgstr "axel 是一个支持HTTP，HTTPS，FTP和FTPS协议不错的高速下载工具。支持多线程下载、断点续传，且可以从多个地址或者从一个地址的多个连接来下载同一个文件。适合网速不给力时多线程下载提高下载速度。"
 
