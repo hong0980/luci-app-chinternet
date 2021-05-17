@@ -96,6 +96,7 @@ jobs:
         find dl -size -1024c -exec rm -f {} \;
 
     - name: 固件编译
+      id: compile
       run: |
         cd openwrt
         echo -e "$(nproc) thread compile"
@@ -113,28 +114,28 @@ jobs:
         
     - name: 上传bin整包
       uses: actions/upload-artifact@v2
-      if: steps.compile.outputs.status == 'success'
+      if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
         name: ${{ env.FILE_DATE }}-Lean-OpenWrt-bin-newifi-d2
         path: openwrt/bin
 
     - name: 上传Packages
       uses: actions/upload-artifact@v2
-      if: steps.compile.outputs.status == 'success'
+      if: steps.compile.outputs.status == 'success' && !cancelled()
       with:
         name: packages
         path: openwrt/bin/targets/*/*/packages
 
     - name: 上传sysupgrade固件
       uses: actions/upload-artifact@v2
-      if: steps.organize.outputs.status == 'success'
+      if: steps.compile.outputs.status == 'success' && !cancelled()
       with:
         name: ${{ env.FILE_DATE }}-Lean-OpenWrt-newifi-d2
         path: openwrt/bin/targets/*/*/*squashfs-sysupgrade.bin
 
     - name: 上传config
       uses: actions/upload-artifact@v2
-      if: steps.organize.outputs.status == 'success'
+      if: steps.compile.outputs.status == 'success' && !cancelled()
       with:
         name: config.seed
         path: openwrt/bin/targets/*/*/config.seed
