@@ -1,6 +1,12 @@
 on:
-  watch:
-    types: started
+  push:
+    paths:
+      - 'po'
+#   schedule:
+#     - cron: 0 19 * * *
+#     - cron: 0 8 */3 * *
+#  watch:
+#    types: started
 
 name: 编译ipk
 
