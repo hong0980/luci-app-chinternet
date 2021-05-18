@@ -121,8 +121,8 @@ jobs:
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
-#        ls openwrt/bin/targets/*/*/ | grep sysupgrade >> BIN
-#        [ -s BIN ] && echo "BIN=$(cat BIN)" >> $GITHUB_ENV
+        # ls openwrt/bin/targets/*/*/ | grep sysupgrade >> BIN
+        # [ -s BIN ] && echo "BIN=$(cat BIN)" >> $GITHUB_ENV
         mkdir -p openwrt/firmware
         cp openwrt/.config  openwrt/firmware/config.txt
         cp openwrt/bin/targets/*/*/*sysupgrade.* openwrt/firmware
