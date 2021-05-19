@@ -125,7 +125,7 @@ jobs:
         ls openwrt/bin/targets/*/*/
         mkdir -p openwrt/firmware
         cp openwrt/.config  openwrt/firmware/config.txt
-        cp openwrt/bin/targets/*/*/*sysupgrade* openwrt/firmware
+        cp openwrt/bin/targets/*/*/*combined-squashfs* openwrt/firmware
         cp openwrt/bin/targets/*/*/sha256sums openwrt/firmware
         cd openwrt/firmware
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
