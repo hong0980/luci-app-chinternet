@@ -120,9 +120,6 @@ jobs:
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
-        # ls openwrt/bin/targets/*/*/ | grep sysupgrade >> BIN
-        # [ -s BIN ] && echo "BIN=$(cat BIN)" >> $GITHUB_ENV
-        ls openwrt/bin/targets/*/*/
         mkdir -p openwrt/firmware
         cp openwrt/.config  openwrt/firmware/config.txt
         cp openwrt/bin/targets/*/*/*combined-squashfs* openwrt/firmware
@@ -150,7 +147,7 @@ jobs:
       if: steps.compile.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_sysupgrade
-        path: openwrt/bin/targets/${{ env.TARGET }}/${{ env.SUBTARGET }}/*sysupgrade.*
+        path: openwrt/bin/targets/${{ env.TARGET }}/${{ env.SUBTARGET }}/*combined-squashfs*
 
     - name: 上传到奶牛快传
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_COWTRANSFER == 'true' && !cancelled()
