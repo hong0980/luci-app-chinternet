@@ -1,101 +1,50 @@
-msgid "crontabs"
-msgstr "crontab文件"
-
-msgid "Reboot schedule"
-msgstr "定时任务 Plus+"
-
-msgid "View usage example"
-msgstr "查看使用示例"
-
-msgid "View crontab usage"
-msgstr "查看crontab用法"
-
-msgid "<font color=\"green\"><b>A plug-in that makes timed tasks easier to use. It is modified with the original version of wulishui@gmail.com, which supports wulishui. Click below</font><font color=\"red\"> View usage example </font><font color=\"green\"> and then scan two Dimension Code Reward</font></b></br>"
-msgstr "<font color=\"green\"><b>让定时任务更加易用的插件。是用 wulishui@gmail.com 的原版修改，支持 wulishui 点击下面的 </font><font color=\"red\"> 查看使用示例 </font><font color=\"green\"> 后扫描二维码打赏</font></b></br>"
-
-msgid "The string of the CRON expression is composed of five fields separated by spaces and executed commands. </br>* * * * * [command]</br>Five asterisks indicate (minutes) (hours) (days) (months) (weeks) according to their positions. commond indicates the command to be executed</br> The allowed range of values is minute (1-59), hour (0-23), day (1-31), month (1-12), week (0-6). </br>Each field can be composed of a value within the range or a combination of the following half-width special characters:</br>"
-msgstr "CRON表达式的字符串是五个有空格分隔加执行命令字段组成。 </br>* * * * * [command]</br>五个星号按照位置分别表示 (分) (时) (日) (月) (周) commond 表示所需执行的命令</br>允许的数值范围是，分(1-59), 时(0-23), 日(1-31)，月(1-12), 周(0-6)。</br>每一个字段都可以使用范围之内的数值或者以下半角的特殊字符组合组成：</br>"
-
-msgid "1) An asterisk (*) indicates any value. If you use * in the \"minute\" field, it means that it will be triggered every minute. </br>2) A hyphen (-) indicates a range. If 5-20 is used in the \"minute\" field, it means that it will be triggered every minute from 5 to 20 minutes. </br>3) The comma (,) represents the split value. If you use 5,20 in the \"minute\" field, it means that it will be triggered every 5 minutes and 20 minutes. </br>4) Forward slash (/) means every time period. If you use 5-45/20 in the \"minute\" field, it means that it will be triggered every 20 minutes at 5 minutes, 25 minutes, and 45 minutes. </br>"
-msgstr "1) 星号 (*) 表示任意值。如在“分钟”字段使用*, 表示每分钟都会触发一次。</br>2) 连字符 (-) 表示范围。如在“分钟”字段使用5-20，表示在从5分到20分时段每分钟触发一次。</br>3) 逗号 (,) 表示分割数值。如在“分钟”字段使用5,20，表示在每5分和20分时触发一次。</br>4) 正斜杠 (/) 表示每隔时段。如在“分钟”字段使用5-45/20，表示在5分和25分和45分每隔20分钟触发一次。</br>"
-
-msgid "Reboots"
-msgstr "重启系统"
-
-msgid "Restart network"
-msgstr "重启网络"
-
-msgid "Restart wan"
-msgstr "重启wan"
-
-msgid "Redial"
-msgstr "重新拨号"
-
-msgid "Turn off networking"
-msgstr "关闭联网"
-
-msgid "Turn on networking"
-msgstr "打开联网"
-
-msgid "Turn off WIFI"
-msgstr "关闭WIFI"
-
-msgid "Turn on WIFI"
-msgstr "打开WIFI"
-
-msgid "Free up memory"
-msgstr "释放内存"
-
-msgid "Turn off the power"
-msgstr "关闭电源"
-
-msgid "Scheduled tasks in system crontab.<br/>You can also edit or add commands directly here."
-msgstr "系统 crontab 文件中的要执行定时任务。<br/>这里也可直接编辑或添加命令。"
-
-msgid "command"
-msgstr "命令"
-
-msgid "Hour"
-msgstr "时"
-
-msgid "month"
-msgstr "月"
-
-msgid "Execute immediately"
-msgstr "立即执行"
+msgid "Transparent bridge"
+msgstr "透明网桥"
 
 msgid ""
+"<font color=\"green\">Let the routing become a transparent bridge device that communicates with the superior routing without perception and has the function of firewall.</font><br><br>"
+"Applicable to network environments that have superior routing and require some functions of soft routing but do not want multi-level NAT.<br>"
+"The switch or client needs to be connected to the network port of the soft route.<br>"
+"The WEB console of the soft route after the transparent bridge is enabled is the bridge IP.<br>"
+"Some features on the soft route will be invalid after enabling the transparent bridge, such as Full Cone, multi-dial, etc.<br>"
+"After closing, restore the network settings when the plugin is installed, and the WEB console reverts to the original set IP."
 msgstr ""
+"<font color=green>让路由成为与上级路由通信，无感知，并具备防火墙功能的透明网桥设备。</font><br><br>"
+"<font color=orange>✯</font>适用于有上级路由，需要软路由的一些功能但又不想多级NAT的网络环境。<br>"
+"<font color=orange>✯</font>交换机或客户端需要连接到软路由的网口下面。<br>"
+"<font color=orange>✯</font>启用透明网桥后软路由的WEB控制台为网桥IP。<br>"
+"<font color=orange>✯</font>启用透明网桥后软路由上的一些功能会失效，如：Full Cone、多拨等。<br>"
+"<font color=orange>✯</font>关闭后恢复插件安装时的网络设置，WEB控制台恢复为原始设置的IP。"
 
-msgid ""
-msgstr ""
+msgid "Settings"
+msgstr "设置"
 
-msgid ""
-msgstr ""
+msgid "Passerelle transparente"
+msgstr "开启透明网桥"
 
-msgid "axel is a good high-speed download tool that supports HTTP, HTTPS, FTP and FTPS protocols. Supports multi-threaded downloads, resumable uploads, and can download the same file from multiple addresses or multiple connections from one address. It is suitable for multi-threaded download to improve the download speed when the internet speed is not strong."
-msgstr "axel 是一个支持HTTP，HTTPS，FTP和FTPS协议不错的高速下载工具。支持多线程下载、断点续传，且可以从多个地址或者从一个地址的多个连接来下载同一个文件。适合网速不给力时多线程下载提高下载速度。"
+msgid "Transparent bridge NOT RUNNING"
+msgstr "透明网桥 未运行"
 
-msgid "Axel is running"
-msgstr "Axel 正在运行"
+msgid "Transparent bridge RUNNING"
+msgstr "透明网桥 已运行"
 
-msgid "Axel is not running"
-msgstr "Axel 没有运行"
+msgid "GatewayIP"
+msgstr "网关IP"
 
-msgid "Operating status :"
-msgstr "运行状态 : "
+msgid "Superior routing IP"
+msgstr "上级路由IP"
 
-msgid "The path where the downloaded file is saved. For example: <code>/mnt/sda1/download</code>"
-msgstr "下载文件的保存路径。例如：<code>/mnt/sda1/download</code>"
+msgid "Bridge IP"
+msgstr "网桥IP"
 
-msgid "save route"
-msgstr "保存路径"
+msgid "Need to be on the same network segment as the upper-level route but do not conflict with other device IPs."
+msgstr "需要和上级路由在同一个网段但不要和其它设备IP冲突 "
 
-msgid "Current Axel version: %s"
-msgstr "当前Axel的版本: %s"
+msgid "Netmask"
+msgstr "子网掩码"
 
-msgid ""
-msgstr ""
+msgid "Number of network ports"
+msgstr "网口数"
 
-msgid ""
-msgstr ""
+msgid "The number of physical network ports on the soft route is automatically detected when left blank."
+msgstr "软路由物理网口数量，留空则自动探测。"
