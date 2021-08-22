@@ -1,50 +1,259 @@
-msgid "Transparent bridge"
-msgstr "透明网桥"
+msgid "cpulimit"
+msgstr "CPU限制"
+
+msgid "Use cpulimit to restrict app's cpu usage."
+msgstr "利用cpulimit限制应用程序的CPU使用率"
+
+msgid "exename"
+msgstr "进程名称"
+
+msgid "name of the executable program file or path name"
+msgstr "可执行文件名称。不能是应用程序路径！"
+
+msgid "limit"
+msgstr "占用率限制"
+
+msgid "Disks Model"
+msgstr "硬盘型号"
+
+msgid "Firmware"
+msgstr "固件版本"
+
+msgid "Capacity"
+msgstr "容量"
+
+msgid "Sector size"
+msgstr "扇区大小"
+
+msgid "Temperature"
+msgstr "温度"
+
+msgid "Power state"
+msgstr "电源状态"
+
+msgid "Startup Delay"
+msgstr "启动延迟"
+
+msgid "MWAN Interfaces"
+msgstr "MWAN接口信息"
+
+msgid "untagged"
+msgstr "无标记"
+
+msgid "tagged"
+msgstr "已标记"
+
+msgid "Custom WEB UI directory"
+msgstr "自定义Web UI目录"
+
+msgid "Successful safe shutdown!"
+msgstr "已经关机！"
+
+msgid "Power Off"
+msgstr "关机"
+
+msgid "PowerOff the operating system of your device"
+msgstr "安全关机，某些机器不能完全断电，关机后只能通过手工重新启动。"
+
+msgid "Perform PowerOff"
+msgstr "执行关机"
+
+msgid "RAM Size"
+msgstr "内存容量"
+
+msgid "CPU usage"
+msgstr "CPU使用率"
+
+msgid "Unsupported"
+msgstr "不支持"
+
+msgid "CPU Model"
+msgstr "CPU型号"
+
+msgid "services"
+msgstr "服务"
+
+msgid "Control"
+msgstr "管控"
+
+msgid "Raid arrays"
+msgstr "RAID 设备"
+
+msgid "Level"
+msgstr "RAID模式"
+
+msgid "# Disks"
+msgstr "硬盘个数"
+
+msgid "Capacity"
+msgstr ""
+
+msgid "Metadata"
+msgstr "硬盘位置"
+
+msgid "Status"
+msgstr ""
+
+msgid "Serial number"
+msgstr "硬盘序列号"
+
+msgid "Weather"
+msgstr "天气"
+
+msgid "Local Weather"
+msgstr "当地天气"
+
+msgid "Device is PowerOff..."
+msgstr "设备已关闭..."
+
+msgid "Bad Gateway"
+msgstr "错误的网关"
+
+msgid "The process did not produce any response"
+msgstr "这个过程没有任何反应"
+
+msgid "fail"
+msgstr "失败"
+
+msgid "connecting"
+msgstr "连接中"
+
+msgid "Use as Docker data (/opt/docker)"
+msgstr "作为Docker数据分区使用 (/opt/docker)"
+
+msgid "MAC Repeater Mode"
+msgstr "MAC中继器模式"
+
+msgid "Enable"
+msgstr "启用"
+
+msgid "Disable"
+msgstr "禁用"
+
+msgid "Please waiting while the page is loading......"
+msgstr "正在加载页面，请稍候。。。。。。"
+
+msgid "Choose This"
+msgstr "选择这个"
 
 msgid ""
-"<font color=\"green\">Let the routing become a transparent bridge device that communicates with the superior routing without perception and has the function of firewall.</font><br><br>"
-"Applicable to network environments that have superior routing and require some functions of soft routing but do not want multi-level NAT.<br>"
-"The switch or client needs to be connected to the network port of the soft route.<br>"
-"The WEB console of the soft route after the transparent bridge is enabled is the bridge IP.<br>"
-"Some features on the soft route will be invalid after enabling the transparent bridge, such as Full Cone, multi-dial, etc.<br>"
-"After closing, restore the network settings when the plugin is installed, and the WEB console reverts to the original set IP."
+msgstr "发射功率"
+
+msgid "Always On"
+msgstr "总是开启"
+
+msgid "Always Off"
+msgstr "总是关闭"
+
+msgid "BG Protection Mode"
+msgstr "BG保护模式"
+
+msgid "TX Power"
+msgstr "发射功率"
+
+msgid "JP (Japan)"
+msgstr "JP (日本)"
+
+msgid "FR (France)"
+msgstr "FR (法国)"
+
+msgid "TW (Taiwan)"
+msgstr "TW (台湾)"
+
+msgid "IE (Ireland)"
+
+msgid "HK (Hong Kong)"
+msgstr "HK (香港)"
+
+msgid "IE (Ireland)"
+msgstr "IE (爱尔兰)"
+
+msgid "Radius Server IP"
+msgstr "Radius 服务器IP"
+
+msgid "Radius Server Port"
+msgstr "Radius 服务器端口"
+
+msgid "Shared Secret"
 msgstr ""
-"<font color=green>让路由成为与上级路由通信，无感知，并具备防火墙功能的透明网桥设备。</font><br><br>"
-"<font color=orange>✯</font>适用于有上级路由，需要软路由的一些功能但又不想多级NAT的网络环境。<br>"
-"<font color=orange>✯</font>交换机或客户端需要连接到软路由的网口下面。<br>"
-"<font color=orange>✯</font>启用透明网桥后软路由的WEB控制台为网桥IP。<br>"
-"<font color=orange>✯</font>启用透明网桥后软路由上的一些功能会失效，如：Full Cone、多拨等。<br>"
-"<font color=orange>✯</font>关闭后恢复插件安装时的网络设置，WEB控制台恢复为原始设置的IP。"
 
-msgid "Settings"
-msgstr "设置"
+msgid "second(s)"
+msgstr "单位(秒)"
 
-msgid "Passerelle transparente"
-msgstr "开启透明网桥"
+msgid "Session Timeout"
+msgstr "会话超时"
 
-msgid "Transparent bridge NOT RUNNING"
-msgstr "透明网桥 未运行"
+msgid "Idle Timeout"
+msgstr "空闲超时"
 
-msgid "Transparent bridge RUNNING"
-msgstr "透明网桥 已运行"
+msgid "Encryption"
+msgstr "加密"
 
-msgid "GatewayIP"
-msgstr "网关IP"
+msgid "Pre-Authentication"
+msgstr "预认证"
 
-msgid "Superior routing IP"
-msgstr "上级路由IP"
+msgid ""
+msgstr ""
 
-msgid "Bridge IP"
-msgstr "网桥IP"
+msgid ""
+msgstr ""
 
-msgid "Need to be on the same network segment as the upper-level route but do not conflict with other device IPs."
-msgstr "需要和上级路由在同一个网段但不要和其它设备IP冲突 "
+msgid ""
+msgstr ""
 
-msgid "Netmask"
-msgstr "子网掩码"
+msgid ""
+msgstr ""
 
-msgid "Number of network ports"
-msgstr "网口数"
+msgid ""
+msgstr ""
 
-msgid "The number of physical network ports on the soft route is automatically detected when left blank."
-msgstr "软路由物理网口数量，留空则自动探测。"
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
