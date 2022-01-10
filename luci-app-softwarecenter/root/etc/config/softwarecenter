@@ -1,0 +1,45 @@
+config softwarecenter 'main'
+
+config website
+	option website_select '0'
+	option website_name 'tz (雅黑PHP探针)'
+
+config website
+	option website_select '1'
+	option website_name 'phpMyAdmin (数据库管理工具)'
+
+config website
+	option website_select '2'
+	option website_name 'WordPress (使用最广泛的CMS)'
+
+config website
+	option website_select '3'
+	option website_name 'Owncloud (经典的私有云)'
+
+config website
+	option website_select '4'
+	option website_name 'Nextcloud (美观强大的个人云盘)'
+
+config website
+	option website_select '5'
+	option website_name 'h5ai (优秀的文件目录)'
+
+config website
+	option website_select '6'
+	option website_name 'Lychee (一个好看，易于使用的Web相册)'
+
+config website
+	option website_select '7'
+	option website_name 'Kodexplorer (可道云•资源管理器)'
+
+config website
+	option website_select '8'
+	option website_name 'Typecho (流畅的轻量级开源博客程序)'
+
+config website
+	option website_select '9'
+	option website_name 'Z-Blog (体积小，速度快的PHP博客程序)'
+
+config website
+	option website_select '10'
+	option website_name 'DzzOffice (开源办公平台)'

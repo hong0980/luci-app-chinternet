@@ -1,0 +1,49 @@
+<fieldset class="cbi-section">
+	<legend><%:运行状态%></legend>
+	<table width="100%" cellspacing="10" id="_xlnetacc_status_table">
+		<tr><td id="nginx_run_state_head" width="33%"><%:Nginx服务器运行状态%></td><td id="nginx_run_state"><em><%:获取数据中...%></em></td></tr>
+		<tr><td id="mysql_run_state_head" width="33%"><%:MySQL服务器运行状态%></td><td id="mysql_run_state"><em><%:获取数据中...%></em></td></tr>
+		<tr><td id="php_run_state_head" width="33%"><%:PHP7解析器运行状态%></td><td id="php_run_state"><em><%:获取数据中...%></em></td></tr>
+	</table>
+</fieldset>
+
+<script type="text/javascript">//<![CDATA[
+	var nginx_state = document.getElementById('nginx_run_state');
+	var nginx_state_head = document.getElementById('nginx_run_state_head');
+	var mysql_state = document.getElementById('mysql_run_state');
+	var mysql_state_head = document.getElementById('mysql_run_state_head');
+	var php_state = document.getElementById('php_run_state');
+	var php_state_head = document.getElementById('php_run_state_head');
+	
+	XHR.poll(5, '<%=luci.dispatcher.build_url("admin", "services", "softwarecenter", "status")%>', null, function(x, status) {
+		if ( x && x.status == 200 ) {
+			if(status.nginx_installed){
+				nginx_state.innerHTML = status.nginx_state ? '<em><b><font color=green><%:运行中%></font></b></em>' : '<em><b><font color=red><%:没有运行%></font></b></em>';
+				nginx_state_head.style.display = 'table-cell';
+				nginx_state.style.display = 'table-cell';
+				}
+			else{
+				nginx_state_head.style.display = 'none';
+				nginx_state.style.display = 'none';
+			}
+			if(status.mysql_installed){
+				mysql_state.innerHTML = status.mysql_state ? '<em><b><font color=green><%:运行中%></font></b></em>' : '<em><b><font color=red><%:没有运行%></font></b></em>';
+				mysql_state_head.style.display = 'table-cell';
+				mysql_state.style.display = 'table-cell';
+				}
+			else{
+				mysql_state_head.style.display = 'none';
+				mysql_state.style.display = 'none';
+			}
+			if(status.php_installed){
+				php_state.innerHTML = status.php_state ? '<em><b><font color=green><%:运行中%></font></b></em>' : '<em><b><font color=red><%:没有运行%></font></b></em>';
+				php_state_head.style.display = 'table-cell';
+				php_state.style.display = 'table-cell';
+				}
+			else{
+				php_state_head.style.display = 'none';
+				php_state.style.display = 'none';
+			}	
+		}
+	});
+//]]></script>

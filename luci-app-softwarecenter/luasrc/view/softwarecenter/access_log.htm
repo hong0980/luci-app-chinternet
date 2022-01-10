@@ -1,0 +1,55 @@
+<%
+local dsp = require "luci.dispatcher"
+-%>
+<% css = [[
+
+	#access_log_textarea {
+		padding: 15px;
+		text-align: left;
+	}
+	#access_log_textarea pre {
+		word-break: break-all;
+		margin: 0;
+		font-size : 10pt;
+		font-family :Arial;
+		<!-- background-color:#F0F0F0; -->
+		<!-- color : #202020; -->
+	}
+	.description {
+		background-color: #93ccff;
+		font-size : 15pt;
+
+]]
+-%>
+
+<%+header%>
+<script type="text/javascript">
+	//<![CDATA[
+	function clear_access_log(btn) {
+		XHR.get('<%=dsp.build_url("admin/services/softwarecenter/clear_access_log")%>', null,
+			function(x, data) {
+				if(x && x.status == 200) {
+					var access_log_textarea = document.getElementById('access_log_textarea');
+					access_log_textarea.innerHTML = "";
+					access_log_textarea.scrollTop = access_log_textarea.scrollHeight;
+				}
+			}
+		);
+	}
+	XHR.poll(2, '<%=dsp.build_url("admin/services/softwarecenter/access_log")%>', null,
+		function(x, data) {
+			if(x && x.status == 200) {
+				var access_log_textarea = document.getElementById('access_log_textarea');
+				access_log_textarea.innerHTML = x.responseText;
+				access_log_textarea.scrollTop = access_log_textarea.scrollHeight;
+			}
+		}
+	);
+	//]]>
+</script>
+<fieldset class="cbi-section" id="_log_fieldset">
+<legend><%:Nginx的运行日志%></legend>
+	<input class="cbi-button cbi-input-remove" type="button" onclick="clear_access_log()" value="<%:清空日志%>" />
+	<div style="text-align:right"><small><%:显示最后50行%></small></div>
+	<textarea id="access_log_textarea" class="cbi-input-textarea" style="width: 100%;margin-top: 10px;" data-update="change" rows="30" wrap="off" readonly="readonly"></textarea>
+</fieldset>

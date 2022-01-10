@@ -21,36 +21,38 @@ jobs:
         run: |
           TAG=${GITHUB_REF#refs/tags/}
           echo ::set-output name=tag_name::${TAG}
-          mkdir -p /tmp/luci-app-chinternet/usr/lib/lua/luci /tmp/luci-app-chinternet/www/
-          [ -d $GITHUB_WORKSPACE/luci-app-chinternet/luasrc ] && cp -R $GITHUB_WORKSPACE/luci-app-chinternet/luasrc/* /tmp/luci-app-chinternet/usr/lib/lua/luci/
-          [ -d $GITHUB_WORKSPACE/luci-app-chinternet/root ] && cp -R $GITHUB_WORKSPACE/luci-app-chinternet/root/* /tmp/luci-app-chinternet/
-          chmod +x /tmp/luci-app-chinternet/etc/init.d/* >/dev/null 2>&1
-          chmod +x /tmp/luci-app-chinternet/etc/uci-defaults/* >/dev/null 2>&1
-          [ -d $GITHUB_WORKSPACE/luci-app-chinternet/po ] && sudo -E apt-get -y install gcc make && \
-          mkdir -p /tmp/po2lmo && mkdir -p /tmp/luci-app-chinternet/usr/lib/lua/luci/i18n/ && \
-          wget -O /tmp/po2lmo/po2lmo.c https://raw.githubusercontent.com/openwrt/luci/openwrt-18.06/modules/luci-base/src/po2lmo.c && \
-          wget -O /tmp/po2lmo/Makefile https://raw.githubusercontent.com/openwrt/luci/openwrt-18.06/modules/luci-base/src/Makefile && \
-          wget -O /tmp/po2lmo/template_lmo.h https://raw.githubusercontent.com/openwrt/luci/openwrt-18.06/modules/luci-base/src/template_lmo.h && \
-          wget -O /tmp/po2lmo/template_lmo.c https://raw.githubusercontent.com/openwrt/luci/openwrt-18.06/modules/luci-base/src/template_lmo.c && \
-          cd /tmp/po2lmo && make po2lmo && ./po2lmo $GITHUB_WORKSPACE/luci-app-chinternet/po/zh-cn/chinternet.po /tmp/luci-app-chinternet/usr/lib/lua/luci/i18n/chinternet.zh-cn.lmo
-          cd /tmp/luci-app-chinternet/usr/lib/lua/luci/i18n
-          echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+          mkdir -p /tmp/luci-app-softwarecenter/usr/lib/lua/luci
+          [ -d $GITHUB_WORKSPACE/luci-app-softwarecenter/luasrc ] && cp -R $GITHUB_WORKSPACE/luci-app-softwarecenter/luasrc/* /tmp/luci-app-softwarecenter/usr/lib/lua/luci/
+          [ -d $GITHUB_WORKSPACE/luci-app-softwarecenter/root ] && cp -R $GITHUB_WORKSPACE/luci-app-softwarecenter/root/* /tmp/luci-app-softwarecenter/
+          chmod +x /tmp/luci-app-softwarecenter/etc/init.d/* >/dev/null 2>&1
+          chmod +x /tmp/luci-app-softwarecenter/etc/uci-defaults/* >/dev/null 2>&1
+          [ -d $GITHUB_WORKSPACE/luci-app-softwarecenter/po ] && sudo -E apt-get -y install gcc make && \
+          mkdir -p /tmp/po2lmo && mkdir -p /tmp/luci-app-softwarecenter/usr/lib/lua/luci/i18n/ && \
+          wget -O /tmp/po2lmo/po2lmo.c https://raw.githubusercontent.com/openwrt/luci/openwrt-18.06/modules/luci-base/src/po2lmo.c --show-progress && \
+          wget -O /tmp/po2lmo/Makefile https://raw.githubusercontent.com/openwrt/luci/openwrt-18.06/modules/luci-base/src/Makefile --show-progress && \
+          wget -O /tmp/po2lmo/template_lmo.h https://raw.githubusercontent.com/openwrt/luci/openwrt-18.06/modules/luci-base/src/template_lmo.h --show-progress && \
+          wget -O /tmp/po2lmo/template_lmo.c https://raw.githubusercontent.com/openwrt/luci/openwrt-18.06/modules/luci-base/src/template_lmo.c --show-progress && \
+          cd /tmp/po2lmo && make po2lmo && ./po2lmo $GITHUB_WORKSPACE/luci-app-softwarecenter/po/zh-cn/softwarecenter.po /tmp/luci-app-softwarecenter/usr/lib/lua/luci/i18n/softwarecenter.zh-cn.lmo
+          # cd /tmp/luci-app-softwarecenter/usr/lib/lua/luci/i18n
+          # echo "FIRMWARE=$PWD" >> $GITHUB_ENV
           echo "FILE_DATE=$(date +"%Y-%m%d-%H%M")" >> $GITHUB_ENV
-          mkdir -p /tmp/luci-app-chinternet/CONTROL
-          cat >/tmp/luci-app-chinternet/CONTROL/postinst <<EOF
+          mkdir -p /tmp/luci-app-softwarecenter/CONTROL
+          cat >/tmp/luci-app-softwarecenter/CONTROL/postinst <<EOF
           #!/bin/sh
           if [ -z "${IPKG_INSTROOT}" ]; then
-          ( . /etc/uci-defaults/luci-app-chinternet ) && rm -f /etc/uci-defaults/luci-app-chinternet
+          ( . /etc/uci-defaults/luci-app-softwarecenter ) && rm -f /etc/uci-defaults/luci-app-softwarecenter
           fi
           exit 0
           EOF
-          chmod +x /tmp/luci-app-chinternet/CONTROL/postinst
-          # wget -O /tmp/ipkg-build https://raw.githubusercontent.com/openwrt/openwrt/v18.06.0/scripts/ipkg-build && \
-          # chmod +x /tmp/ipkg-build && \
-          # /tmp/ipkg-build -o root -g root /tmp/luci-app-chinternet /tmp
-      - name: 上传固件
+          chmod +x /tmp/luci-app-softwarecenter/CONTROL/postinst
+          wget -O /tmp/ipkg-build https://raw.githubusercontent.com/openwrt/openwrt/v18.06.0/scripts/ipkg-build --show-progress && \
+          chmod +x /tmp/ipkg-build && \
+          /tmp/ipkg-build -o root -g root /tmp/luci-app-softwarecenter /tmp
+          cd /tmp
+          echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+      - name: 上传ipk
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ env.FILE_DATE }}-chinternet.zh-cn.lmo
+          name: ${{ env.FILE_DATE }}-luci-app-softwarecenter
           path: ${{ env.FIRMWARE }}
         

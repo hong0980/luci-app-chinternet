@@ -1,0 +1,37 @@
+<fieldset class="cbi-section">
+	<legend><%:已部署的网站%></legend>
+	<table width="100%" cellspacing="10" id="website_list">
+		<tr><td width="33%"><%:网站名称%></td><td id="php_run_state"><%:访问地址%></td></tr>
+	</table>
+</fieldset>
+
+<script type="text/javascript">//<![CDATA[
+	var website_list = document.getElementById('website_list');
+
+	XHR.poll(5, '<%=luci.dispatcher.build_url("admin", "services", "softwarecenter", "status")%>', null, function(x, status) {
+		if ( x && x.status == 200 ) {
+			var tbody_delete = website_list.getElementsByTagName('tbody');
+			var tbody_size_delete = tbody_delete.length;
+			for(var i = 1; i < tbody_size_delete; i++){
+				website_list.removeChild(tbody_delete[1]);
+			}
+			var list = status.website_list.split(" ");
+			var list_size = parseInt(status.website_list_size);
+			for(var i = 0; i < list_size; i++){
+				var tbody = document.createElement("tbody")
+				var tr = document.createElement("tr");
+				var name = document.createElement("td");
+				name.innerHTML = list[2*i];
+				name.style = "display: table-cell;"
+				name.width = "33%"
+				var address = document.createElement("td")
+				address.innerHTML = "<a href='http://"+list[2*i+1]+"' target='_blank'>"+list[2*i+1]+"</a>";
+				address.style="display: table-cell;"
+				tr.appendChild(name);
+				tr.appendChild(address);
+				tbody.appendChild(tr);
+				website_list.appendChild(tbody);
+			}
+		}
+	});
+//]]></script>

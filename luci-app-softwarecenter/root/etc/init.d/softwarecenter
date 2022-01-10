@@ -1,0 +1,104 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2019 Jianpeng Xiang (1505020109@mail.hnust.edu.cn)
+# This is free software, licensed under the GNU General Public License v3.
+
+START=52
+STOP=10
+
+. /usr/bin/softwarecenter/nmp_install.sh
+. /usr/bin/softwarecenter/app_install.sh
+. /usr/bin/softwarecenter/web_install.sh
+
+start() {
+	CDG() {
+		config_load softwarecenter
+		get_config="cpu_model delaytime deploy_entware deploy_mysql deploy_nginx disk_mount download_dir entware_enable mysql_enabled nginx_enabled partition_disk pass swap_enabled swap_path swap_size user"
+
+		for rt in $get_config; do
+			config_get_bool $rt main $rt
+			config_get $rt main $rt
+		done
+
+		# entware环境
+		source /etc/profile >/dev/null 2>&1
+		if [ $entware_enable ]; then
+			if [ ! -e /etc/init.d/entware ]; then
+				echo_time "========= 开始部署entware环境 =========\n"
+				entware_set $disk_mount $cpu_model
+				source /etc/profile >/dev/null 2>&1
+			fi
+		else
+			if [ -x /etc/init.d/entware ]; then
+				entware_unset
+				echo_time "========= entware环境已删除 =========\n"
+			fi
+			return 1
+		fi
+
+		# Nginx
+		if [ $deploy_nginx ]; then
+			[ ! -x /opt/etc/init.d/S80nginx ] && echo_time "========= 开始安装Nginx =========\n" && init_nginx
+			if [ $nginx_enabled ]; then
+				[ "$(pidof nginx)" ] || nginx_manage start
+			else
+				nginx_manage stop
+			fi
+		else
+			[ -x /opt/etc/init.d/S80nginx ] && echo_time "========= 卸载Nginx相关的软件包 =========\n" && del_nginx
+		fi
+
+		# MySQL
+		if [ $deploy_mysql ]; then
+			[ ! -x /opt/etc/init.d/S70mysqld ] && echo_time "========= 开始安装MySQL =========\n" && init_mysql
+			if [ $mysql_enabled ]; then
+				[ "$(pidof mysqld)" ] || /opt/etc/init.d/S70mysqld start >/dev/null 2>&1
+			else
+				/opt/etc/init.d/S70mysqld stop >/dev/null 2>&1
+			fi
+		else
+			[ -x /opt/etc/init.d/S70mysqld ] && echo_time "========= 卸载MySQL相关的软件包 =========\n" && del_mysql
+		fi
+
+		[ "$(pidof nginx)" ] && {
+			config_foreach handle_website website test
+			clean_vhost_config
+		}
+
+		[ $swap_enabled ] && config_swap_init $swap_size $swap_path || config_swap_del $swap_path
+
+		grep -q "_boot" /etc/config/softwarecenter && {
+			for pk in $(awk '/_boot/{print $2}' /etc/config/softwarecenter | sed 's/_boot//'); do
+				[ "$(uci get softwarecenter.main.${pk}_boot)" = 1 ] && {
+					jd=`find /opt/etc/init.d/ -perm '-u+x' -name "*$pk"`
+					if [ -x "$jd" ]; then
+						if ! _pidof "$pk" >/dev/null 2>&1; then
+							# echo_time "$pk 启动"
+							[ $delaytime ] && sleep $delaytime
+							if $jd start >/dev/null 2>&1; then
+								echo_time "$pk 启动成功"
+							else
+								echo_time "$pk 启动失败"
+							fi
+						# else
+							# echo_time "$pk 已在运行"
+						fi
+					else
+						echo_time "=========== 开始安装 $pk ==========="
+						/usr/bin/softwarecenter/app_install.sh $pk
+						echo_time "=========== $pk 安装完成 ===========\n"
+					fi
+				}
+			done
+		}
+	}
+	CDG >>/tmp/log/softwarecenter.log
+}
+
+stop() {
+	:
+}
+
+restart() {
+	stop
+	start
+}

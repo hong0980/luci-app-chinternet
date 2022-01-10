@@ -1,0 +1,119 @@
+msgid "Software Center"
+msgstr "软件中心"
+
+msgid "Running Status"
+msgstr "运行状态"
+
+msgid "Website List"
+msgstr "已部署的网站列表"
+
+msgid "Nginx Running Status"
+msgstr "Nginx服务器运行状态"
+
+msgid "MySQL Running Status"
+msgstr "MySQL数据库服务器运行状态"
+
+msgid "PHP7 Running Status"
+msgstr "PHP7解析器运行状态"
+
+msgid "Website Name"
+msgstr "网站名称"
+
+msgid "Address"
+msgstr "访问地址"
+
+msgid "The software center is designed for the automated and unified configuration of software applications. It provides us with a simple and friendly interactive interface, which aims to make the configuration process easier and simpler!"
+msgstr "软件中心负责软件和应用的自动化统一配置部署，提供一个简单友好的交互页面，旨在使应用的配置流程更轻松、更简单！<br>项目地址：https://github.com/jsp1256/openwrt-package"
+
+msgid "NOT RUNNING"
+msgstr "未运行"
+
+msgid "RUNNING"
+msgstr "运行中"
+
+msgid "Software Center Settings"
+msgstr "软件中心设置"
+
+msgid "Entware Settings"
+msgstr "Entware软件仓库设置"
+
+msgid "Nginx Settings"
+msgstr "Nginx服务器设置"
+
+msgid "MySQL Settings"
+msgstr "MySQL数据库服务器设置"
+
+msgid "Deploy Entware"
+msgstr "部署Entware软件仓库"
+
+msgid "This is a software repository for network attached storages, routers and other embedded devices.Browse through 2000+ packages for different platforms."
+msgstr "这是一个用于NAS，路由器和其他嵌入式设备的软件仓库。提供超过2000多个不同平台的软件包。"
+
+msgid "Select CPU model"
+msgstr "选择CPU架构"
+
+msgid "Current CPU model"
+msgstr "当前CPU架构："
+
+msgid "Entware install path"
+msgstr "Entware软件仓库安装路径"
+
+msgid "The select mount point will be reformat to ext4 filesystem,make sure that certain software can running normally<br>Warning: If select disk filesystem is not ext4,the disk will be reformat,please make sure there are no important data on the disk or make sure the disk's filesystem already is ext4"
+msgstr "安装路径下的磁盘将可能被重新格式化为EXT4文件系统来保证某些软件能正常运行<br>警告：请保证磁盘上没有重要数据或者磁盘已经是EXT4文件系统"
+
+msgid "Enabled"
+msgstr "启用"
+
+msgid "You must enable this option,otherwise the nginx and mysql settings will not be available"
+msgstr "您必须启用此选项，否则Nginx服务器和MySQL数据库服务器的设置将不可用"
+
+msgid "Deploy Nginx"
+msgstr "部署Nginx服务器"
+
+msgid "If enabled,it will auto deploy the Nginx server and the php7 environment from the Entware software source<br>the installation process will cost lots of time,but when it finish installation and installed sucessful,you can see the server runing status in this page"
+msgstr "如果此选项启用，将自动部署Nginx服务器和其所需的PHP7运行环境（依赖Entware软件仓库）<br>此安装过程将可能需要大量时间，但是当安装成功完成时，您能在本页面实时的观察到服务器的运行状况"
+
+msgid "Deploy MySQL"
+msgstr "部署MySQL数据库服务器"
+
+msgid "If enabled,it will auto deploy the MySQL server from the Entware software source<br>the installation process will cost lots of time,but when it finish installation and installed sucessful,you can see the server runing status in this page"
+msgstr "如果此选项启用，将自动部署MySQL数据库服务器（依赖Entware软件仓库）<br>此安装过程将可能需要大量时间，但是当安装成功完成时，您能在本页面实时的观察到服务器的运行状况"
+
+msgid "First runing,the default user is 'root' and password is '123456'"
+msgstr "第一次运行时，默认的登录用户是'root'，密码是'123456'"
+
+msgid "Website Manager"
+msgstr "网站管理"
+
+msgid "Make sure that Nginx has installed and running!<br>Some website need the database server"
+msgstr "请确保Nginx服务器正常安装并且已运行！<br>某些网站需要数据库服务器的支持"
+
+msgid "Enable website auto deploy"
+msgstr "启用网站自动部署"
+
+msgid "Select you website to deploy!"
+msgstr "请选择你需要部署的网站"
+
+msgid "Installation information of deployment and software configuration of entware and Onmp"
+msgstr "Entware，ONMP的部署和软件配置的安装信息"
+
+msgid "Enable website custom deploy"
+msgstr "启用网站自定义部署"
+
+msgid "This is your custom website dir name, this dir must be put in USB_DEVICE/opt/wwwroot/<br>The USB_DEVICE is the root path in you usb device, like /mnt/sda"
+msgstr "此选项设定您自定义网站的目录名，该目录必须放置在USB_DEVICE/opt/wwwroot/下<br>USB_DEVICE表示您USB设备的根目录，例如/mnt/sda"
+
+msgid "Port number"
+msgstr "端口号"
+
+msgid "Nginx operation information"
+msgstr "nginx运行信息"
+
+msgid "Only Owncloud and Nextcloud can use"
+msgstr "只有Owncloud和Nextcloud可以使用"
+
+msgid "Enable Redis"
+msgstr "启用 远程字典服务"
+
+msgid "Clear logs"
+msgstr "清空日志"
