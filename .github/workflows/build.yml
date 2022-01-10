@@ -46,7 +46,7 @@ jobs:
           cat >/tmp/luci-app-softwarecenter/CONTROL/postinst <<EOF
           #!/bin/sh
           if [ -z "${IPKG_INSTROOT}" ]; then
-          ( . /etc/uci-defaults/luci-app-softwarecenter ) && rm -f /etc/uci-defaults/luci-app-softwarecenter
+          ( . /etc/uci-defaults/luci-softwarecenter ) && rm -f /etc/uci-defaults/luci-softwarecenter
           fi
           exit 0
           EOF
