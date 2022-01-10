@@ -19,13 +19,12 @@ jobs:
         uses: actions/checkout@v2
       - name: build
         run: |
-          TAG=${GITHUB_REF#refs/tags/}
-          echo ::set-output name=tag_name::${TAG}
           mkdir -p /tmp/luci-app-softwarecenter/usr/lib/lua/luci
           [ -d $GITHUB_WORKSPACE/luci-app-softwarecenter/luasrc ] && cp -R $GITHUB_WORKSPACE/luci-app-softwarecenter/luasrc/* /tmp/luci-app-softwarecenter/usr/lib/lua/luci/
           [ -d $GITHUB_WORKSPACE/luci-app-softwarecenter/root ] && cp -R $GITHUB_WORKSPACE/luci-app-softwarecenter/root/* /tmp/luci-app-softwarecenter/
           chmod +x /tmp/luci-app-softwarecenter/etc/init.d/* >/dev/null 2>&1
           chmod +x /tmp/luci-app-softwarecenter/etc/uci-defaults/* >/dev/null 2>&1
+          chmod +x /tmp/luci-app-softwarecenter/usr/bin/softwarecenter/* >/dev/null 2>&1
           [ -d $GITHUB_WORKSPACE/luci-app-softwarecenter/po ] && sudo -E apt-get -y install gcc make && \
           mkdir -p /tmp/po2lmo && mkdir -p /tmp/luci-app-softwarecenter/usr/lib/lua/luci/i18n/ && \
           wget -qO /tmp/po2lmo/po2lmo.c raw.githubusercontent.com/openwrt/luci/openwrt-18.06/modules/luci-base/src/po2lmo.c --show-progress && \
@@ -33,7 +32,7 @@ jobs:
           wget -qO /tmp/po2lmo/template_lmo.h raw.githubusercontent.com/openwrt/luci/openwrt-18.06/modules/luci-base/src/template_lmo.h --show-progress && \
           wget -qO /tmp/po2lmo/template_lmo.c raw.githubusercontent.com/openwrt/luci/openwrt-18.06/modules/luci-base/src/template_lmo.c --show-progress && \
           cd /tmp/po2lmo && make po2lmo && ./po2lmo $GITHUB_WORKSPACE/luci-app-softwarecenter/po/zh-cn/softwarecenter.po /tmp/luci-app-softwarecenter/usr/lib/lua/luci/i18n/softwarecenter.zh-cn.lmo
-          echo "FILE_DATE=$(date +"%Y-%m%d-%H%M")" >> $GITHUB_ENV
+          echo "FILE_DATE=$(date +"%m%d-%H%M")" >> $GITHUB_ENV
           mkdir -p /tmp/luci-app-softwarecenter/CONTROL
           cat >/tmp/luci-app-softwarecenter/CONTROL/control <<EOF
           Package: luci-app-softwarecenter
@@ -43,7 +42,6 @@ jobs:
           Section: luci
           Priority: optional
           Description: Simple Docker manager interface
-          Source: http://github.com/hong0980/luci-app-softwarecenter
           EOF
           cat >/tmp/luci-app-softwarecenter/CONTROL/postinst <<EOF
           #!/bin/sh
@@ -62,5 +60,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ${{ env.FILE_DATE }}-luci-app-softwarecenter
-          path: ${{ env.FIRMWARE }}/luci-app-softwarecenter*
+          path: ${{ env.FIRMWARE }}/*ipk
         
