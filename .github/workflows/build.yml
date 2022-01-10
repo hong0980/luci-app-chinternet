@@ -37,7 +37,7 @@ jobs:
           mkdir -p /tmp/luci-app-softwarecenter/CONTROL
           cat >/tmp/luci-app-softwarecenter/CONTROL/control <<EOF
           Package: luci-app-softwarecenter
-          Version: 2.2.1
+          Version: 2.2.2
           Depends: parted, e2fsprogs, lsof
           Architecture: all
           Section: luci
@@ -62,5 +62,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ${{ env.FILE_DATE }}-luci-app-softwarecenter
-          path: ${{ env.FIRMWARE }}
+          path: ${{ env.FIRMWARE }}/luci-app-softwarecenter*
         
