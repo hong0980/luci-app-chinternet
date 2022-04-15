@@ -31,7 +31,7 @@ jobs:
           wget -qO /tmp/po2lmo/Makefile raw.githubusercontent.com/openwrt/luci/openwrt-18.06/modules/luci-base/src/Makefile --show-progress && \
           wget -qO /tmp/po2lmo/template_lmo.h raw.githubusercontent.com/openwrt/luci/openwrt-18.06/modules/luci-base/src/template_lmo.h --show-progress && \
           wget -qO /tmp/po2lmo/template_lmo.c raw.githubusercontent.com/openwrt/luci/openwrt-18.06/modules/luci-base/src/template_lmo.c --show-progress && \
-          cd /tmp/po2lmo && make po2lmo >/dev/null 2>&1 && ./po2lmo $GITHUB_WORKSPACE/luci-app-softwarecenter/po/zh-cn/softwarecenter.po /tmp/luci-app-softwarecenter/usr/lib/lua/luci/i18n/softwarecenter.zh-cn.lmo >/dev/null 2>&1
+          cd /tmp/po2lmo && make po2lmo >/dev/null 2>&1 && ./po2lmo $GITHUB_WORKSPACE/luci-app-softwarecenter/po/zh-cn/*.po /tmp/luci-app-softwarecenter/usr/lib/lua/luci/i18n/pp.zh-cn.lmo >/dev/null 2>&1
           echo "FILE_DATE=$(date +"%m%d-%H%M")" >> $GITHUB_ENV
           mkdir -p /tmp/luci-app-softwarecenter/CONTROL
           cat >/tmp/luci-app-softwarecenter/CONTROL/control <<EOF
@@ -41,7 +41,7 @@ jobs:
           Architecture: all
           Section: luci
           Priority: optional
-          Description: Simple Docker manager interface
+          Description: 
           EOF
           cat >/tmp/luci-app-softwarecenter/CONTROL/postinst <<EOF
           #!/bin/sh
@@ -62,4 +62,3 @@ jobs:
         with:
           name: ${{ env.FILE_DATE }}-luci-app-softwarecenter
           path: ${{ env.FIRMWARE }}/*ipk
-        
